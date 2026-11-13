@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Un día especial 🌷</title>
+
+    <!-- Conexión con el archivo CSS -->
+    <link rel="stylesheet" href="estilo.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <!-- Frase especial: primer mensaje -->
+        <h1 class="frase-especial">
+            Las mujeres como usted suceden una vez
+            en la vida… así de valiosa es usted. 🌷
+        </h1>
+
+        <!-- Felicitación de cumpleaños -->
+        <h2 class="titulo-cumple">
+            ¡Feliz cumpleaños,<br>
+            Nathaly!
+        </h2>
+
+        <!-- Mensaje de cumpleaños -->
+        <p class="subtitulo">
+            Porque hay personas que, sin darse cuenta,
+            hacen que ciertos días sean aún más bonitos.
+            Hoy es uno de esos días especiales para usted.
+        </p>
+
+        <!-- Pastel de cumpleaños -->
+        <div class="pastel">
+
+            <div class="vela">
+                <span class="llama">🔥</span>
+            </div>
+
+            <div class="vela">
+                <span class="llama">🔥</span>
+            </div>
+
+            <div class="vela">
+                <span class="llama">🔥</span>
+            </div>
+
+            <div class="pastel-cuerpo">
+                <div class="decoracion-pastel">🍓</div>
+                <div class="decoracion-pastel">🍓</div>
+                <div class="decoracion-pastel">🍓</div>
+            </div>
+
+            <div class="base-pastel"></div>
+
+        </div>
+
+        <!-- Globitos decorativos -->
+        <div class="globos">
+            🎈 🎈 🎈
+        </div>
+
+        <!-- Botón para abrir la sorpresa -->
+        <button id="botonSorpresa" onclick="abrirCarta()">
+            Abrir mi sorpresa 💌
+        </button>
+
+        <!-- Carta de cumpleaños -->
+        <div class="carta" id="carta">
+
+            <h2>Para usted, Nathaly 🌷</h2>
+
+            <p class="mensaje" id="mensaje"></p>
+
+            <p class="firma" id="firma"></p>
+
+        </div>
+
+        <!-- Despedida -->
+        <p class="despedida">
+            ✨ Que nunca le falten motivos para sonreír. ✨
+        </p>
+
+    </div>
+
+    <!-- Música opcional -->
+    <audio id="musica" src="musica.mp3" loop></audio>
+
+    <script>
+
+        // Dedicatoria de cumpleaños
+        const dedicatoria =
+        "Espero que este nuevo año de vida llegue acompañado de muchas alegrías, sueños y momentos que le hagan sonreír. Que nunca le falten motivos para sentirse orgullosa de la mujer que es, de todo lo que va logrando y de las personas que le recuerden lo valiosa que es. Espero que disfrute mucho su día y cada una de las cosas bonitas que la vida tiene preparadas para usted. ¡Que tenga un cumpleaños muy especial y muy bonito, así como usted! 🌷";
+
+        // Función para abrir la carta
+        function abrirCarta() {
+
+            const carta = document.getElementById("carta");
+            const boton = document.getElementById("botonSorpresa");
+            const musica = document.getElementById("musica");
+
+            carta.style.display = "block";
+
+            boton.disabled = true;
+            boton.textContent = "Una sorpresa para usted 🎂";
+
+            escribirMensaje();
+
+            // Reproducir música
+            musica.play().catch(() => {
+                console.log("No se pudo reproducir la música.");
+            });
+
+        }
+
+        // Efecto de escritura
+        function escribirMensaje() {
+
+            let i = 0;
+
+            const mensaje = document.getElementById("mensaje");
+            const firma = document.getElementById("firma");
+
+            mensaje.textContent = "";
+
+            const intervalo = setInterval(() => {
+
+                mensaje.textContent += dedicatoria.charAt(i);
+
+                i++;
+
+                if (i >= dedicatoria.length) {
+
+                    clearInterval(intervalo);
+
+                    firma.textContent = "Con mucho cariño 💗";
+
+                }
+
+            }, 40);
+
+        }
+
+        // Crear elementos flotantes
+        function crearFlor() {
+
+            const elemento = document.createElement("div");
+
+            elemento.className = "flor";
+
+            const decoraciones = [
+                "🌸",
+                "🌷",
+                "🌼",
+                "✨",
+                "🎈"
+            ];
+
+            elemento.textContent =
+                decoraciones[
+                    Math.floor(Math.random() * decoraciones.length)
+                ];
+
+            elemento.style.left = Math.random() * 100 + "vw";
+
+            elemento.style.animationDuration =
+                (5 + Math.random() * 5) + "s";
+
+            elemento.style.fontSize = "22px";
+
+            document.body.appendChild(elemento);
+
+            setTimeout(() => {
+                elemento.remove();
+            }, 10000);
+
+        }
+
+        // Generar decoraciones continuamente
+        setInterval(crearFlor, 600);
+
+        // Crear destellos
+        for (let i = 0; i < 20; i++) {
+
+            const estrella = document.createElement("span");
+
+            estrella.className = "destello";
+            estrella.textContent = "✦";
+
+            estrella.style.left =
+                Math.random() * 100 + "vw";
+
+            estrella.style.top =
+                Math.random() * 100 + "vh";
+
+            document.body.appendChild(estrella);
+
+        }
+
+    </script>
+
+</body>
+</html>

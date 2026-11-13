@@ -1,0 +1,348 @@
+
+/* CONFIGURACIÓN GENERAL */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    color: white;
+    text-align: center;
+    background: radial-gradient(circle, #75445f, #3a2038, #21172b);
+    overflow-x: hidden;
+    padding: 35px 15px;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.contenedor {
+    max-width: 650px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* TÍTULO PRINCIPAL */
+h1 {
+    font-size: 48px;
+    color: #fff1f7;
+    text-shadow: 0 0 20px pink;
+    margin: 20px 0;
+}
+
+/* SUBTÍTULOS */
+.subtitulo {
+    font-size: 19px;
+    color: #f8dce8;
+    line-height: 1.6;
+}
+
+/* FRASE ESPECIAL */
+.frase-especial {
+    font-size: 25px;
+    font-style: italic;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #ffd6e8;
+    margin: 35px auto;
+    padding: 15px;
+    text-shadow: 0 0 12px #f7a9ca;
+    animation: aparecer 1.5s ease;
+}
+
+/* PASTEL DE CUMPLEAÑOS */
+.pastel {
+    position: relative;
+    width: 220px;
+    height: 170px;
+    margin: 45px auto 20px;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+/* CUERPO DEL PASTEL */
+.pastel-cuerpo {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    width: 200px;
+    height: 90px;
+    background: linear-gradient(
+        to bottom,
+        #ffe1ed 0%,
+        #f6a9c7 50%,
+        #e98eb5 100%
+    );
+    border-radius: 12px 12px 20px 20px;
+    box-shadow: 0 8px 20px #170d1d;
+}
+
+/* DECORACIÓN DEL PASTEL */
+.pastel-cuerpo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 18px;
+    background: #fff1f6;
+    border-radius: 50%;
+}
+
+.decoracion-pastel {
+    position: relative;
+    display: inline-block;
+    margin: 30px 10px 0;
+    font-size: 17px;
+    z-index: 2;
+}
+
+/* BASE DEL PASTEL */
+.base-pastel {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 220px;
+    height: 17px;
+    background: linear-gradient(
+        90deg,
+        #d77ca5,
+        #ffe0ed,
+        #d77ca5
+    );
+    border-radius: 50%;
+    box-shadow: 0 5px 15px #160e1c;
+}
+
+/* VELITAS */
+.vela {
+    position: absolute;
+    bottom: 110px;
+    width: 10px;
+    height: 40px;
+    background: repeating-linear-gradient(
+        45deg,
+        #fff5df,
+        #fff5df 4px,
+        #e8a5c4 4px,
+        #e8a5c4 8px
+    );
+    border-radius: 4px;
+    z-index: 3;
+}
+
+.vela:nth-child(1) {
+    left: 65px;
+}
+
+.vela:nth-child(2) {
+    left: 105px;
+}
+
+.vela:nth-child(3) {
+    left: 145px;
+}
+
+/* LLAMAS */
+.llama {
+    position: absolute;
+    top: -28px;
+    left: -6px;
+    font-size: 20px;
+    animation: llamaBrillar 0.8s infinite alternate;
+}
+
+@keyframes llamaBrillar {
+    from {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+
+    to {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+/* ANIMACIÓN DEL PASTEL */
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* GLOBITOS */
+.globos {
+    font-size: 35px;
+    margin: 15px auto 30px;
+    letter-spacing: 12px;
+    animation: globosFlotar 2.5s ease-in-out infinite;
+}
+
+@keyframes globosFlotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* BOTÓN */
+button {
+    padding: 15px 28px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ffd9e8, #e99cbd);
+    color: #54283f;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px #160e1c55;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px pink;
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+
+/* CARTA */
+.carta {
+    display: none;
+    background: #fff8fb;
+    color: #633c52;
+    padding: 30px;
+    border-radius: 20px;
+    margin: 30px auto;
+    box-shadow: 0 10px 35px #160e1c;
+    animation: aparecer 1s ease;
+}
+
+.carta h2 {
+    color: #a34e76;
+    font-size: 29px;
+}
+
+/* DEDICATORIA */
+.mensaje {
+    font-size: 19px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.firma {
+    color: #a34e76;
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 19px;
+}
+
+/* DESPEDIDA */
+.despedida {
+    color: #f8dce8;
+    font-size: 17px;
+    margin-top: 30px;
+}
+
+/* ANIMACIÓN DE APARICIÓN */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FLORES Y ELEMENTOS CAYENDO */
+.flor {
+    position: fixed;
+    top: -30px;
+    animation: caer linear forwards;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes caer {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* DESTELLOS */
+.destello {
+    position: fixed;
+    color: #ffe5ef;
+    animation: brillar 2s infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes brillar {
+    0%, 100% {
+        opacity: 0.2;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 38px;
+    }
+
+    .subtitulo {
+        font-size: 17px;
+    }
+
+    .frase-especial {
+        font-size: 21px;
+        margin: 25px auto;
+    }
+
+    .pastel {
+        margin-top: 35px;
+    }
+
+    .carta {
+        padding: 22px;
+    }
+
+    .carta h2 {
+        font-size: 25px;
+    }
+
+    .mensaje {
+        font-size: 17px;
+    }
+
+    .globos {
+        font-size: 29px;
+        letter-spacing: 7px;
+    }
+}
